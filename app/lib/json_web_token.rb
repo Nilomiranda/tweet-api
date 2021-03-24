@@ -11,7 +11,6 @@ class JsonWebToken
   end
 
   def self.decode(token)
-    puts("TOKEN", token)
     # get payload: first element in decoded Array
     body = JWT.decode(token, HMAC_SECRET)[0]
     HashWithIndifferentAccess.new body
@@ -19,7 +18,6 @@ class JsonWebToken
     # rescue all decode errors
 
   rescue JWT::DecodeError => e
-    puts("DECODE ERROR", e)
     raise ExceptionHandler::InvalidToken, e.message
   end
 end
