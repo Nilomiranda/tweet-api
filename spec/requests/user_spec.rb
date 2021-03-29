@@ -23,6 +23,10 @@ RSpec.describe 'Users API', type: :request do
       it 'returns an authentication token' do
         expect(json['auth_token']).not_to be_nil
       end
+
+      it 'returns user data' do
+        expect(json['user']).not_to be_nil
+      end
     end
 
     context 'when ivalid request' do
